@@ -71,21 +71,3 @@ def write_num (file, i):
     assert type(i) == int
     return file.write(i.to_bytes(BYTES_PER_N, ENDIAN, signed=False))
 
-
-def test ():
-    fname = 'output.strings'
-    strings = ['abcdefghijklmnopqrstuvwxyz', 'abc', 'def', 'ghi', 'plmopq', 'b']
-
-    with open(fname, 'wb') as f:
-        write_file(f, strings)
-
-    with open(fname, 'rb') as f:
-        strings2 = read_file(f)
-
-    print('in', strings)
-    print('out', strings2)
-
-
-if __name__ == '__main__':
-    test()
-
