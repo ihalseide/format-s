@@ -2,6 +2,8 @@
 
 **Format s** is a binary data format for storing text strings. The rationale is that sometimes you want to store lots of strings in a file or database efficiently. This data format is probably as compact as it can get without using null-terminated strings, which are costly to skip through. This format uses length encoding, and this data format could conceivable be directly memory-mapped. One example use case is a string translation table.
 
+The proposed file extension is ".str".
+
 ## Specification
 
 Psuedo-code for the structure (I will explain this later):
