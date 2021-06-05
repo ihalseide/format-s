@@ -1,0 +1,34 @@
+= Format S =
+
+Data format for storing text strings. The rationale is that sometimes you want to store lots of strings in a file or database efficiently. This data format is probably as compact as it can get without using null-terminated strings, which are costly to skip through. This format uses length encoding, and this data format could conceivable be directly memory-mapped. One example use case is a translation table.
+
+== Overview ==
+
+Like: width (1), count (width), string pointers (length * count * 2), string data (?)
+
+ {
+ 	# header - dimensions
+ 	width [1] 
+ 	count [width] 
+	# header - array of "pointers"
+ 	string_pointers [count] {
+ 		offset [width]
+ 		length [width] # length of bytes, not character count
+ 	}
+
+	# raw string data
+ 	strings []
+ }
+
+* header
+
+* raw string data
+
+=== Header ===
+
+The number of strings and then a list of pairs of offsets and lengths into the rest of the data, relative to the beginning of the file
+
+=== Raw string data ===
+
+Strings are packed back-to-back, and there are no null terminators because the strings are length encoded in the header
+
