@@ -29,5 +29,5 @@ Add a string payload size field
 
 ## License
 
-This project is under the MIT License. See the file "LICENSE.txt" for more information.
+See the file called "LICENSE.txt" for more information.
 
